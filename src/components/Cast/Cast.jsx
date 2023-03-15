@@ -6,24 +6,25 @@ import {CastList} from "./Cast.styled";
 
 
 const Cast = () =>{
-const {MovieId} = useParams();
+const {movieId} = useParams();
 const [actors, setActors] = useState([]);
 const [loading, setLoading] = useState(false);
 
+
 useEffect(() => {
-    const onActorsOfMovie = async () => {
-      setLoading(true);
-      try {
-        const actors = await getMovieCredits(MovieId);
-        setActors(actors);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    onActorsOfMovie();
-  }, [MovieId]);
+  const onActorsOfMovie = async () => {
+    setLoading(true);
+    try {
+      const actors = await getMovieCredits(movieId);
+      setActors(actors);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  onActorsOfMovie();
+}, [movieId]);
 
   return (
     <div>
