@@ -3,6 +3,7 @@ import { getSearchMovies } from "Api";
 import { Loader } from "components/Loader/Loader";
 import { useSearchParams } from 'react-router-dom';
 import SearchMovie from "components/SearchMovie/SearchMovie";
+import { Form, Input, Button } from "./Moviepage.styled"
 
 const Moviepage = () =>{
     const [query,setQuery] = useState(``);
@@ -42,16 +43,16 @@ const Moviepage = () =>{
 
     return (
         <main>
-            <form onSubmit={handleSubmit}>
-            <input
+            <Form onSubmit={handleSubmit}>
+            <Input
             onChange={handelChange}
             type="text"
             placeholder="Search movie"
             name="query"
             value={query}
             />
-            <button type="submit">Search</button>
-            </form>
+            <Button type="submit">Search</Button>
+            </Form>
             {loading && <Loader />}
             {searchFilms && <SearchMovie films={searchFilms}/>}
             {searchFilms &&

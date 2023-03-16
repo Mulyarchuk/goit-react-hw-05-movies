@@ -10,7 +10,7 @@ const [movieInfo, setMovieInfo] = useState(null);
 const [loading, setLoading] = useState(false);
 const location = useLocation();
 
-const LinkHref = location.state?.from ?? "/";
+const BackLinkHref = location.state?.from ?? "/";
 
 useEffect(() => {
       const onMovieDetails = async () => {
@@ -30,7 +30,7 @@ useEffect(() => {
 
 return (
     <div>
-    <Link to={LinkHref}>
+    <Link to={BackLinkHref}>
         <Button type="button">
           Go back
         </Button>
